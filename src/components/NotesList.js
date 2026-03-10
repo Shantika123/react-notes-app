@@ -1,4 +1,4 @@
-import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd";
+import { DragDropContext, Droppable, Draggable } from "@hello-pangea/dnd";
 import Note from "./Note";
 
 function NotesList({ notes, deleteNote, editNote, togglePin, setNotes }) {
