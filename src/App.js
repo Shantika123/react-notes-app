@@ -7,7 +7,7 @@ function App() {
 
   const [notes, setNotes] = useState([]);
   const [search, setSearch] = useState("");
-  const [darkMode, setDarkMode] = useState(false); // ⭐ Dark Mode
+  const [darkMode, setDarkMode] = useState(false);
 
   useEffect(() => {
 
@@ -27,16 +27,8 @@ function App() {
     localStorage.setItem("notes", JSON.stringify(notes));
   }, [notes]);
 
-  // ⭐ Add note with color
-  const addNote = (text, color) => {
-    const newNote = {
-      id: Date.now(),
-      text,
-      color,
-      pinned: false
-    };
-
-    setNotes([...notes, newNote]);
+  const addNote = (note) => {
+    setNotes([...notes, note]);
   };
 
   const deleteNote = (id) => {
@@ -47,17 +39,13 @@ function App() {
     const updated = notes.map(note =>
       note.id === id ? { ...note, text: newText } : note
     );
-
     setNotes(updated);
   };
 
-  // 📌 Toggle pin
   const togglePin = (id) => {
-
     const updatedNotes = notes.map(note =>
       note.id === id ? { ...note, pinned: !note.pinned } : note
     );
-
     setNotes(updatedNotes);
   };
 
@@ -65,14 +53,10 @@ function App() {
     note.text.toLowerCase().includes(search.toLowerCase())
   );
 
-  // 📌 Sort pinned notes first
-  const sortedNotes = [...filteredNotes].sort((a, b) => b.pinned - a.pinned);
-
   return (
 
-    <div className={`min-h-screen p-10 ${darkMode ? "bg-gray-900 text-white" : "bg-white-900 text-black"}`}>
+    <div className={`min-h-screen p-10 ${darkMode ? "bg-gray-900 text-white" : "bg-white text-black"}`}>
 
-      {/* ⭐ Dark Mode Toggle */}
       <button
         onClick={() => setDarkMode(!darkMode)}
         className="mb-4 px-4 py-2 bg-gray-800 text-white rounded-full"
@@ -89,10 +73,11 @@ function App() {
       <AddNote addNote={addNote} />
 
       <NotesList
-        notes={sortedNotes}
+        notes={filteredNotes}
         deleteNote={deleteNote}
         editNote={editNote}
         togglePin={togglePin}
+        setNotes={setNotes}
       />
 
     </div>
