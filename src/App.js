@@ -55,7 +55,7 @@ function App() {
 
   return (
 
-    <div className={`min-h-screen p-10 ${darkMode ? "bg-gray-900 text-white" : "bg-white text-black"}`}>
+    <div className={`min-h-screen p-10 ${darkMode ? "bg-gray-900 text-black" : "bg-white text-black"}`}>
 
       <button
         onClick={() => setDarkMode(!darkMode)}
