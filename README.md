@@ -33,7 +33,7 @@ The application uses **browser Local Storage** to persist data, ensuring notes r
 
 ```bash
 # Clone the repository
-git clone <your-repository-link>
+https://github.com/Shantika123/react-notes-app.git
 
 # Navigate into the project folder
 cd your-project-folder
