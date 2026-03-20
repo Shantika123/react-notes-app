@@ -57,9 +57,9 @@ http://localhost:3000
 
 This project is deployed on Vercel.
 
-Live Demo:
-[https://students-table-dashboard.vercel.app](https://students-table-dashboard.vercel.app)
+## 🌐 Live Demo
 
+[Click here to view the app](https://react-notes-app-two-indol.vercel.app/)
 ### Deployment Steps
 
 1. Go to [https://vercel.com](https://vercel.com)
